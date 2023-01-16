@@ -28,7 +28,7 @@ namespace Web_API_Janti.Controllers
         }
 
         // GET: api/Time/
-        [HttpGet("{date}")]
+        [HttpPost("/convert")]
         public string ConvertDate(string date)
         {
             return _timeManager.ConvertDate(date);

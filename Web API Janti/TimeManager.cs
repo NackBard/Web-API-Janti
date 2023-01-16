@@ -33,9 +33,18 @@ namespace Web_API_Janti
 
         public string ConvertDate(string timeStamp)
         {
-            var currentTime = DateTime.Parse(timeStamp);
-            var zoneTime = TimeZoneInfo.ConvertTime(currentTime, CurrentTimeZone);
-            return zoneTime.ToString("dd.MM.yyyy HH:mm:ss zzz");
+            try
+            {
+                var currentTime = DateTime.ParseExact(timeStamp,
+                    new[] { "dd/MM/yyyy HH-mm-ss", "dd.MM.yyyy HH:mm:ss zzz", "dd.MM.yyyy HH:mm"},
+                    System.Globalization.CultureInfo.InvariantCulture);
+                var zoneTime = TimeZoneInfo.ConvertTime(currentTime, CurrentTimeZone);
+                return zoneTime.ToString("dd.MM.yyyy HH:mm:ss zzz");
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
     }
 }
