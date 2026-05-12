@@ -94,10 +94,6 @@ dotnet run
 
 Open Swagger UI at: `https://localhost:{port}/swagger`
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ---
 
 > Built with ❤️ using ASP.NET Core 6 and NodaTime
